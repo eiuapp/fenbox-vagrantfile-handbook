@@ -1,0 +1,828 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-hans" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>安装 · fenbox/Vagrantfile - fenbox/Vagrantfile 实践指南 by eiuapp</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="eiuapp">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-page-toc-button/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-back-to-top-button/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search-plus/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-tbfed-pagefooter/footer.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-prism/prism-ghcolors.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-lightbox/lightbox.min.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    
+    <link rel="prev" href="../" />
+    
+
+    
+        <link rel="shortcut icon" href='../favicon.ico' type="image/x-icon">
+    
+    
+        <link rel="bookmark" href='../favicon.ico' type="image/x-icon">
+    
+    
+    
+
+    <style>
+    @media only screen and (max-width: 640px) {
+        .book-header .hidden-mobile {
+            display: none;
+        }
+    }
+    </style>
+    <script>
+        window["gitbook-plugin-github-buttons"] = {"repo":"eiuapp/fenbox-vagrantfile-handbook","types":["star"],"size":"small"};
+    </script>
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="输入并搜索" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+    
+        
+        <li>
+            <a href="https://eiuapp.github.io/fenbox-vagrantfile-handbook" target="_blank" class="custom-link">Ceph Handbook</a>
+        </li>
+    
+    
+
+    
+    <li class="divider"></li>
+    
+
+    
+        
+        <li class="header">序言</li>
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                        <b>1.1.</b>
+                    
+                    前言
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">install</li>
+        
+        
+    
+        <li class="chapter active" data-level="2.1" data-path="fenbox-vagrantfile-note.html">
+            
+                <a href="fenbox-vagrantfile-note.html">
+            
+                    
+                        <b>2.1.</b>
+                    
+                    安装
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            本书使用 GitBook 发布
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >安装</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div class="search-plus" id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <html><head></head><body><p><a href="https://github.com/fenbox/Vagrantfile" target="_blank">https://github.com/fenbox/Vagrantfile</a> &#x5B9E;&#x8DF5;&#x7B14;&#x8BB0;</p>
+<h2 id="env">env</h2>
+<ul>
+<li>os: windows 10</li>
+<li>virtual: 6.0.4</li>
+<li>vagrant: 2.2.3</li>
+<li>&#x547D;&#x4EE4;&#x884C;&#xFF1A; git-bash&#x6216;&#x8005;cmder&#x6216;&#x8005;cmd</li>
+</ul>
+<h2 id="step">step</h2>
+<p>&#x672C;&#x914D;&#x7F6E;&#x5728; <code>Vagrant 2.2.*</code>&#xFF0C;&#x865A;&#x62DF;&#x673A;&#x4E3A; <code>VirtualBox 6.0.*</code> &#x4E0B;&#x6D4B;&#x8BD5;&#x901A;&#x8FC7;&#x3002;&#x5B89;&#x88C5;&#x6B65;&#x9AA4;&#xFF1A;</p>
+<ol>
+<li>&#x5B89;&#x88C5; VirtualBox &#x865A;&#x62DF;&#x673A;&#x53CA; Vagrant &#x7A0B;&#x5E8F;</li>
+<li>&#x6DFB;&#x52A0; box &#x955C;&#x50CF; vagrant box add bento/ubuntu-18.04&#xFF0C;&#x9009;&#x62E9; virtualbox</li>
+<li>&#x6267;&#x884C;&#x5EFA;&#x7ACB;&#x73AF;&#x5883; vagrant up</li>
+</ol>
+<h3 id="vagrant-box-add">Vagrant box add</h3>
+<pre class="language-"><code>vagrant box add bento/ubuntu-18.04
+</code></pre><p>&#x53D1;&#x73B0;&#x4E0B;&#x8F7D;&#x5F88;&#x6162;&#xFF08;&#x8FC7;&#x4E86;1&#x4E2A;&#x591A;&#x5C0F;&#x65F6;&#x540E;&#xFF0C;&#x8FD8;&#x4E2D;&#x65AD;&#x4E86;&#xFF09;</p>
+<p>&#x53C2;&#x8003; <a href="https://www.jianshu.com/p/f569d687d1e2" target="_blank">Vagrant box add &#x547D;&#x4EE4;&#x52A0;&#x8F7D;&#x8FC7;&#x6162;&#x6700;&#x7B80;&#x5355;&#x7684;&#x5904;&#x7406;&#x65B9;&#x5F0F;</a> &#x65B9;&#x6CD5;2&#xFF0C;&#x901A;&#x8FC7;&#x8FC5;&#x96F7;&#x4E0B;&#x8F7D;</p>
+<p>&#x7136;&#x540E;&#xFF0C;&#x8FD8;&#x662F;&#x5931;&#x8D25;&#x4E86;&#x3002;&#xFF08;&#x8FC5;&#x96F7;&#x4E0B;&#x8F7D;&#xFF0C;&#x4E5F;&#x5931;&#x8D25;&#x3002;&#x771F;&#x7684;&#x662F;&#x5389;&#x5BB3;&#x4E86;&#x3002;&#xFF09;</p>
+<p>&#x53BB;&#x627E;&#x66FF;&#x4EE3;&#x8D44;&#x6E90;&#x3002;&#x901A;&#x8FC7; Vagrantfile &#x6587;&#x4EF6;&#xFF0C;&#x77E5;&#x9053;&#x9700;&#x8981; ubuntu-18.04 &#x7684;&#x8D44;&#x6E90;&#x3002;</p>
+<p>&#x5B98;&#x65B9;&#x955C;&#x50CF;: <a href="https://app.vagrantup.com/boxes/search" target="_blank">https://app.vagrantup.com/boxes/search</a>  &#x641C;&#x7D22; &quot;ubuntu 18.04&quot; </p>
+<p><a href="https://app.vagrantup.com/ubuntu/boxes/bionic64/" target="_blank">https://app.vagrantup.com/ubuntu/boxes/bionic64/</a></p>
+<p>&#x6253;&#x5F00;&#x6700;&#x65B0;&#x7684;&#x4E00;&#x4E2A; &#xFF0C;&#x5F53;&#x4E0B;&#x662F; <code>versions/20190219.0.0/</code>&#xFF0C;&#x70B9;&#x51FB;&#x6253;&#x5F00;&#xFF0C;</p>
+<p>&#x6ED1;&#x52A8;&#x5230;&#x6700;&#x5E95;&#x4E0B;&#xFF0C;&#x770B;&#x4E00;&#x4E0B;&#xFF0C;&#x63D0;&#x4F9B;&#x7684;&#x662F;&#x4EC0;&#x4E48;&#x7C7B;&#x578B;&#x8D44;&#x6E90;&#x3002;&#x770B;&#x5230;&#x662F; <code>virtualbox Externally hosted (cloud-images.ubuntu.com)</code></p>
+<p>&#x590D;&#x5236;&#x6B64;&#x65F6;&#x7684; URL&#xFF1A; <a href="https://app.vagrantup.com/ubuntu/boxes/bionic64/versions/20190219.0.0" target="_blank">https://app.vagrantup.com/ubuntu/boxes/bionic64/versions/20190219.0.0</a></p>
+<p>&#x90A3;&#x5C31;&#x662F;&#x63A5;&#x4E0A; <code>providers/virtualbox.box</code>, &#x5F97;&#x5230;&#xFF1A;</p>
+<p><a href="https://app.vagrantup.com/ubuntu/boxes/bionic64/versions/20190219.0.0/providers/virtualbox.box" target="_blank">https://app.vagrantup.com/ubuntu/boxes/bionic64/versions/20190219.0.0/providers/virtualbox.box</a></p>
+<p>&#x628A;&#x8FD9;&#x4E2A;URL&#xFF0C;&#x653E;&#x5230; &#x8FC5;&#x96F7;&#xFF0C;&#x53BB;&#x4E0B;&#x8F7D;&#xFF0C;&#x6210;&#x529F;&#x5F97;&#x5230;&#x4E86; box </p>
+<p>&#x6253;&#x5F00; &#x547D;&#x4EE4;&#x884C;, &#x6DFB;&#x52A0;box&#x5E76;&#x547D;&#x540D;&#x4E3A; <code>fenbox-lnmp-bionic</code>&#x3002;</p>
+<pre class="language-"><code>E:\vag\vag-env\fenbox-lnmp\Vagrantfile (master -&gt; origin)
+&#x3BB; vagrant box add fenbox-lnmp-bionic E:\vag\ubuntu-18.04\bionic-server-cloudimg-amd64-vagrant.box
+==&gt; box: Box file was not detected as metadata. Adding it directly...
+==&gt; box: Adding box &apos;fenbox-lnmp-bionic&apos; (v0) for provider:
+    box: Unpacking necessary files from: file:///E:/vag/ubuntu-18.04/bionic-server-cloudimg-amd64-vagrant.box
+    box: Progress: 100% (Rate: 931M/s, Estimated time remaining: --:--:--)
+==&gt; box: Successfully added box &apos;fenbox-lnmp-bionic&apos; (v0) for &apos;virtualbox&apos;!
+
+E:\vag\vag-env\fenbox-lnmp\Vagrantfile (master -&gt; origin)
+</code></pre><p>&#x68C0;&#x9A8C;box</p>
+<pre class="language-"><code>E:\tmp
+&#x3BB; vagrant box list
+fenbox-lnmp-bionic (virtualbox, 0)
+
+E:\tmp
+</code></pre><p>&#x56E0;&#x4E3A;&#x6B64;&#x65F6;&#xFF0C;&#x6211;&#x4EEC;&#x7684;box&#xFF0C;&#x4E0D;&#x662F;&#x6E90;&#x7801;&#x4E2D; Vagrantfile &#x6307;&#x5B9A;&#x7684; box &#xFF0C;&#x6240;&#x4EE5;&#x5728; <code>vagrant up</code> &#x524D;&#x8981;&#x5148;&#x4FEE;&#x6539;&#x4E00;&#x4E0B;&#x3002;</p>
+<pre class="language-"><code>DELL@DESKTOP-MQ9CENU MINGW64 /e/vag/vag-env/fenbox-lnmp/Vagrantfile (master)
+$ git diff Vagrantfile
+-  config.vm.box = &quot;bento/ubuntu-18.04&quot;
++  config.vm.box = &quot;fenbox-lnmp-bionic&quot;
+DELL@DESKTOP-MQ9CENU MINGW64 /e/vag/vag-env/fenbox-lnmp/Vagrantfile (master)
+$
+</code></pre><h3 id="vagrant-up&#x542F;&#x52A8;"><code>vagrant up</code>&#x542F;&#x52A8;</h3>
+<p>&#x5728;&#x542F;&#x52A8;&#x524D;&#xFF0C;&#x8981;&#x5148; cd &#x5230; Vagrantfile &#x6240;&#x5728;&#x6587;&#x4EF6;&#x5939; <code>cd /d E:\vag\vag-env\fenbox-lnmp\Vagrantfile</code> &#x7684;&#x54C8;&#x3002;</p>
+<pre class="language-"><code>E:\vag\vag-env\fenbox-lnmp\Vagrantfile (master -&gt; origin)
+&#x3BB; vagrant up
+Bringing machine &apos;default&apos; up with &apos;virtualbox&apos; provider...
+There are errors in the configuration of this machine. Please fix
+the following errors and try again:
+
+vm:
+* The host path of the shared folder is missing: ../typecho/
+* The host path of the shared folder is missing: ../wordpress/
+
+
+E:\vag\vag-env\fenbox-lnmp\Vagrantfile (master -&gt; origin)
+</code></pre><p>&#x63D0;&#x793A;&#x5C11;&#x4E86; <code>../typecho/</code> &#x548C; <code>../wordpress/</code>&#x3002;&#x8FD9;&#x4E9B;&#x5E94;&#x8BE5;&#x662F;&#x4F5C;&#x8005;&#x81EA;&#x5DF1;&#x7684;&#x5185;&#x5BB9;&#x3002;&#x4E0D;&#x7BA1;&#x4E86;&#xFF0C;&#x6211;&#x4EEC;&#x5148;&#x628A;&#x8FD9;&#x4E24;&#x4E2A;&#x6587;&#x4EF6;&#x5939;&#x5EFA;&#x7ACB;&#x8D77;&#x6765;&#x518D;&#x8BF4;&#xFF0C;&#x540C;&#x65F6;&#x653E;2&#x4E2A;html&#x6587;&#x4EF6;&#x8FDB;&#x53BB;&#x54C8;&#xFF0C;&#x8FD9;&#x6837;&#xFF0C;&#x670D;&#x52A1;&#x8D77;&#x6765;&#x540E;&#xFF0C;&#x5C31;&#x53EF;&#x4EE5;&#x9A8C;&#x8BC1;&#x4E86;&#x3002;</p>
+<pre class="language-"><code>E:\vag\vag-env\fenbox-lnmp\Vagrantfile (master -&gt; origin)
+&#x3BB; mkdir ..\typecho
+
+E:\vag\vag-env\fenbox-lnmp\Vagrantfile (master -&gt; origin)
+&#x3BB; mkdir ..\wordpress
+
+E:\vag\vag-env\fenbox-lnmp\Vagrantfile (master -&gt; origin)
+&#x3BB; echo &quot;hello typecho&quot; &gt;&gt; ..\typecho\index.html
+
+E:\vag\vag-env\fenbox-lnmp\Vagrantfile (master -&gt; origin)
+&#x3BB; echo &quot;hello wordpress&quot; &gt;&gt; ..\wordpress\index.html
+
+E:\vag\vag-env\fenbox-lnmp\Vagrantfile (master -&gt; origin)
+</code></pre><p><code>vagrant up</code>&#x542F;&#x52A8;&#x5427;</p>
+<h4 id="&#x8FD9;&#x91CC;&#x662F;&#x6211;&#x7684;&#x62A5;&#x9519;&#xFF0C;&#x5982;&#x679C;&#x60A8;&#x6CA1;&#x6709;&#x62A5;&#x9519;&#xFF0C;&#x5219;&#x8DF3;&#x8FC7;&#x6B64;&#x6B65;">&#x8FD9;&#x91CC;&#x662F;&#x6211;&#x7684;&#x62A5;&#x9519;&#xFF0C;&#x5982;&#x679C;&#x60A8;&#x6CA1;&#x6709;&#x62A5;&#x9519;&#xFF0C;&#x5219;&#x8DF3;&#x8FC7;&#x6B64;&#x6B65;</h4>
+<pre class="language-"><code>E:\vag\vag-env\fenbox-lnmp\Vagrantfile (master -&gt; origin)                                                             
+&#x3BB; vagrant up                                                                                                          
+Bringing machine &apos;default&apos; up with &apos;virtualbox&apos; provider...                                                           
+==&gt; default: Importing base box &apos;fenbox-lnmp-bionic&apos;...                                                               
+==&gt; default: Matching MAC address for NAT networking...                                                               
+==&gt; default: Setting the name of the VM: vagrant_ubuntu18_vb                                                          
+Vagrant is currently configured to create VirtualBox synced folders with                                              
+the `SharedFoldersEnableSymlinksCreate` option enabled. If the Vagrant                                                
+guest is not trusted, you may want to disable this option. For more                                                   
+information on this option, please refer to the VirtualBox manual:                                                    
+
+  https://www.virtualbox.org/manual/ch04.html#sharedfolders                                                           
+
+This option can be disabled globally with an environment variable:                                                    
+
+  VAGRANT_DISABLE_VBOXSYMLINKCREATE=1                                                                                 
+
+or on a per folder basis within the Vagrantfile:                                                                      
+
+  config.vm.synced_folder &apos;/host/path&apos;, &apos;/guest/path&apos;, SharedFoldersEnableSymlinksCreate: false                       
+==&gt; default: Vagrant has detected a configuration issue which exposes a                                               
+==&gt; default: vulnerability with the installed version of VirtualBox. The                                              
+==&gt; default: current guest is configured to use an E1000 NIC type for a                                               
+==&gt; default: network adapter which is vulnerable in this version of VirtualBox.                                       
+==&gt; default: Ensure the guest is trusted to use this configuration or update                                          
+==&gt; default: the NIC type using one of the methods below:                                                             
+==&gt; default:                                                                                                          
+==&gt; default:   https://www.vagrantup.com/docs/virtualbox/configuration.html#default-nic-type                          
+==&gt; default:   https://www.vagrantup.com/docs/virtualbox/networking.html#virtualbox-nic-type                          
+==&gt; default: Clearing any previously set network interfaces...                                                        
+==&gt; default: Preparing network interfaces based on configuration...                                                   
+    default: Adapter 1: nat                                                                                           
+    default: Adapter 2: hostonly                                                                                      
+==&gt; default: Forwarding ports...                                                                                      
+    default: 22 (guest) =&gt; 2222 (host) (adapter 1)                                                                    
+==&gt; default: Running &apos;pre-boot&apos; VM customizations...                                                                  
+==&gt; default: Booting VM...                                                                                            
+There was an error while executing `VBoxManage`, a CLI used by Vagrant                                                
+for controlling VirtualBox. The command and stderr is shown below.                                                    
+
+Command: [&quot;startvm&quot;, &quot;cac2cb19-692c-42ab-a306-621b7a06e9e4&quot;, &quot;--type&quot;, &quot;headless&quot;]                                    
+
+Stderr: VBoxManage.exe: error: VT-x is not available (VERR_VMX_NO_VMX)                                                
+VBoxManage.exe: error: Details: code E_FAIL (0x80004005), component ConsoleWrap, interface IConsole                   
+
+
+E:\vag\vag-env\fenbox-lnmp\Vagrantfile (master -&gt; origin)
+</code></pre><p>&#x53C8;&#x62A5;&#x4E86;&#x4E00;&#x4E2A;&#x9519;&#x8BEF;&#x3002;</p>
+<ul>
+<li><a href="https://stackoverflow.com/questions/37955942/vagrant-up-vboxmanage-exe-error-vt-x-is-not-available-verr-vmx-no-vmx-code" target="_blank">https://stackoverflow.com/questions/37955942/vagrant-up-vboxmanage-exe-error-vt-x-is-not-available-verr-vmx-no-vmx-code</a></li>
+<li><a href="https://github.com/scotch-io/scotch-box/issues/195" target="_blank">https://github.com/scotch-io/scotch-box/issues/195</a></li>
+</ul>
+<p>&#x77E5;&#x9053;&#xFF0C;&#x8FD9;&#x4E2A;&#x5E94;&#x8BE5;&#x662F; Hyper-V &#x4E0E; virtualbox &#x4E0D;&#x80FD;&#x540C;&#x65F6;&#x4F7F;&#x7528;&#xFF0C;&#x8FD9;&#x4E5F;&#x610F;&#x5473;&#x7740; Vagrant with VirtualBox cannot work with Docker at the same time&#x3002;&#x56DE;&#x60F3;&#x4E00;&#x4E0B;&#xFF0C;&#x4E4B;&#x524D;&#xFF0C;&#x6211;&#x786E;&#x5B9E;&#x662F;&#x7531;&#x4E8E; &#x5B89;&#x88C5;&#x5E76;&#x542F;&#x52A8; Docker Desktop &#x5F00;&#x542F;&#x4E86; Hyper-V&#x3002;</p>
+<p>&#x8FD9;&#x65F6;&#x5019;&#xFF0C;&#x771F;&#x7684;&#x662F;&#x4E00;&#x4E2A;&#x8270;&#x96BE;&#x9009;&#x62E9;&#x4E86;&#x3002;</p>
+<ul>
+<li><p>&#x65B9;&#x5F0F;1&#xFF1A;&#x575A;&#x6301;&#x4F7F;&#x7528; Docker Desktop &#x5C31;&#x53EA;&#x80FD;&#x4E0B;&#x8F7D; Hyper-V &#x76F8;&#x5173;&#x7684; box.</p>
+<p>  &#x8FD9;&#x4E5F;&#x610F;&#x5473;&#x7740;&#xFF0C;&#x5F88;&#x591A; virtualbox &#x7684;&#x65B0;&#x7684;&#x5185;&#x5BB9;&#x4E0D;&#x518D;&#x6709;&#x4E86;&#x3002;&#x800C; &#x5B98;&#x65B9;&#x955C;&#x50CF;: <a href="https://app.vagrantup.com/boxes/search" target="_blank">https://app.vagrantup.com/boxes/search</a>  &#x4E2D;&#x5F88;&#x660E;&#x663E;&#xFF0C;virtualbox &#x7684;&#x4E1C;&#x897F;&#xFF0C;&#x8981;&#x65B0;&#xFF0C;&#x8981;&#x591A;&#x3002;</p>
+</li>
+<li><p>&#x65B9;&#x5F0F;2&#xFF1A;&#x653E;&#x5F03; Hyper-V, Docker Desktop</p>
+<p>  &#x8FD9;&#x4E5F;&#x610F;&#x5473;&#x7740;&#xFF0C;&#x4E0D;&#x80FD;&#x5728; windows &#x4E2D;&#x5F00;&#x53D1;docker&#x76F8;&#x5173;&#x8D44;&#x6E90;&#x3002;&#x90A3;&#x5982;&#x679C;&#x8981;&#x4F7F;&#x7528;docker, &#x5C31;&#x5FC5;&#x987B;&#x901A;&#x8FC7; virtualbox &#x5F00;&#x542F;&#x865A;&#x62DF;&#x673A;&#xFF0C;&#x5728;&#x865A;&#x62DF;&#x673A;&#x4E2D;&#x4F7F;&#x7528; docker &#x4E86;&#x3002;</p>
+</li>
+</ul>
+<p>&#x4E5F;&#x5C31;&#x662F;&#x5728;&#x540C;&#x4E00;&#x65F6;&#x70B9;&#xFF0C;2&#x9009;1&#x5427;&#x3002;&#x5F53;&#x7136;&#xFF0C;&#x4E0D;&#x89C9;&#x5F97;&#x5F00;&#x673A;&#x91CD;&#x542F;&#x9EBB;&#x70E6;&#xFF0C;&#x60F3;&#x7528;&#x53E6;&#x4E00;&#x8D44;&#x6E90;&#x65F6;&#xFF0C;&#x5C31;&#x5F00;&#x673A;&#x91CD;&#x542F;&#x4E00;&#x4E0B;&#x5427;&#x3002;</p>
+<p>&#x6211;&#x73B0;&#x5728;&#x662F;&#x9009;&#x62E9;&#x5148;&#x4FE1;&#x7528; Hyper-V&#x3002;</p>
+<ul>
+<li><a href="https://github.com/scotch-io/scotch-box/issues/195" target="_blank">https://github.com/scotch-io/scotch-box/issues/195</a></li>
+</ul>
+<p>&#x4E0A;&#x4E00;&#x4F4D;&#x54E5;&#x4EEC;&#xFF0C;&#x63D0;&#x4F9B;&#x4E86;&#x5FEB;&#x901F;&#x7684;&#x5F00;&#x542F;/&#x5173;&#x95ED; Hyper-V &#x7684;&#x65B9;&#x6CD5;&#xFF0C;&#x6211;&#x4EEC;&#x7528;&#x4ED6;&#x7684;&#x65B9;&#x6CD5;&#xFF08;&#x8BB0;&#x5F97;&#x8FD0;&#x884C;&#x65F6;&#xFF0C;&#x4F7F;&#x7528;&#x7BA1;&#x7406;&#x5458;&#x8FD0;&#x884C;&#xFF09;&#xFF1A;</p>
+<pre class="language-"><code>Windows 8 (Microsoft Windows [Version 6.3.9600]) - without uninstalling Hyper-V (assuming you have virtualization enabled in your BIOS).
+
+Open CMD as Administrator:
+**Disable**
+dism.exe /Online /Disable-Feature:Microsoft-Hyper-V
+Reboot
+**Enable**
+dism.exe /Online /Enable-Feature:Microsoft-Hyper-V
+Reboot
+
+There are other ways. I tested this and vagrant loaded up without the error.
+</code></pre><p>&#x6211;&#x7528; powercmd &#x6253;&#x5F00;&#xFF0C;&#x5E76;&#x8F93;&#x5165;<code>dism.exe /Online /Disable-Feature:Microsoft-Hyper-V</code> &#xFF0C;&#x7136;&#x540E;&#x63D0;&#x793A;&#x662F;&#x5426;&#x91CD;&#x65B0;&#x542F;&#x52A8;&#x3002;&#x4FDD;&#x5B58;&#x4E00;&#x4E9B;&#x7A0B;&#x5E8F;&#x6216;&#x6587;&#x4EF6;&#xFF0C;&#x91CD;&#x65B0;&#x542F;&#x52A8;&#x3002;</p>
+<p>&#x7136;&#x540E;&#xFF0C;&#x518D;<code>vagrant up</code>&#x8FD8;&#x662F;&#x62A5;&#x4E0A;&#x9762;&#x7684;&#x9519;&#x8BEF;&#x3002;</p>
+<p>&#x7136;&#x540E;&#x53BB; <code>&#x63A7;&#x5236;&#x9762;&#x677F;\&#x7A0B;&#x5E8F;\&#x7A0B;&#x5E8F;&#x548C;&#x529F;&#x80FD;\&#x542F;&#x7528;&#x6216;&#x5173;&#x95ED;Windows&#x529F;&#x80FD;</code> &#x627E;&#x5230; Hyper-V &#x53BB;&#x6389;&#x524D;&#x9762;&#x7684;&#x52FE;&#x3002;
+&#x540C;&#x65F6;&#xFF0C;&#x53BB;&#x9664; <code>Docker for Windows</code> &#x548C; <code>Docker Desktop</code> &#x7684;&#x5F00;&#x673A;&#x81EA;&#x542F;&#x52A8;&#x3002;</p>
+<p>&#x518D;&#x6B21;&#x91CD;&#x65B0;&#x542F;&#x52A8;&#x3002;</p>
+<p>&#x7136;&#x540E;&#xFF0C;&#x518D;<code>vagrant up</code>&#x8FD8;&#x662F;&#x62A5;&#x4E0A;&#x9762;&#x7684;&#x9519;&#x8BEF;&#x3002;</p>
+<p>&#x4E0B;&#x8F7D;&#x6700;&#x65B0;&#x7248;&#x672C;&#x7684; virtualbox 6.0.4 &#xFF0C;&#x5B89;&#x88C5;</p>
+<p>&#x91CD;&#x542F;&#x7535;&#x8111;&#x3002;</p>
+<p>&#x7136;&#x540E;&#xFF0C;&#x518D;<code>vagrant up</code>, &#x62A5;&#x4E0B;&#x9762;&#x7684;&#x9519;&#x8BEF;&#x3002;</p>
+<pre class="language-"><code>E:\vag\vag-env\fenbox-lnmp\Vagrantfile (master -&gt; origin)
+&#x3BB; vagrant up
+Bringing machine &apos;default&apos; up with &apos;virtualbox&apos; provider...
+==&gt; default: Clearing any previously set forwarded ports...
+==&gt; default: Clearing any previously set network interfaces...
+==&gt; default: Preparing network interfaces based on configuration...
+    default: Adapter 1: nat
+    default: Adapter 2: hostonly
+==&gt; default: Forwarding ports...
+    default: 22 (guest) =&gt; 2222 (host) (adapter 1)
+==&gt; default: Running &apos;pre-boot&apos; VM customizations...
+==&gt; default: Booting VM...
+There was an error while executing `VBoxManage`, a CLI used by Vagrant
+for controlling VirtualBox. The command and stderr is shown below.
+
+Command: [&quot;startvm&quot;, &quot;cac2cb19-692c-42ab-a306-621b7a06e9e4&quot;, &quot;--type&quot;, &quot;headless&quot;]
+
+Stderr: VBoxManage.exe: error: The native API dll was not found (C:\Windows\system32\WinHvPlatform.dll) (VERR_NEM_NOT_AVAILABLE).
+VBoxManage.exe: error: VT-x is not available (VERR_VMX_NO_VMX)
+VBoxManage.exe: error: Details: code E_FAIL (0x80004005), component ConsoleWrap, interface IConsole
+
+
+E:\vag\vag-env\fenbox-lnmp\Vagrantfile (master -&gt; origin)
+</code></pre><p>&#x6B64;&#x65F6;&#xFF0C;&#x6253;&#x5F00; virtualbox &#xFF0C;&#x53D1;&#x73B0;&#x539F;&#x6765;&#x7684;&#x865A;&#x62DF;&#x673A;&#x4E5F;&#x4E0D;&#x80FD;&#x6253;&#x5F00;&#x4E86;&#x3002;</p>
+<p>&#x4E14;&#x5728; &#x865A;&#x62DF;&#x673A;&#x7684;&#x8BBE;&#x7F6E;&#x4E0B;&#xFF0C;&#x770B;&#x5230;&#xFF1A;
+&#x53D1;&#x73B0;&#x65E0;&#x6548;&#x914D;&#x7F6E;&#xFF1A;&#x786C;&#x4EF6;&#x52A0;&#x901F;&#x914D;&#x7F6E;&#x5DF2;&#x542F;&#x7528;&#x786C;&#x4EF6;&#x865A;&#x62DF;&#x5316;,&#x4F46;&#x4E3B;&#x673A;&#x5E76;&#x4E0D;&#x652F;&#x6301;&#x3002;&#x9700;&#x8981;&#x7981;&#x7528;&#x786C;&#x4EF6;&#x865A;&#x62DF;&#x5316;&#x624D;&#x80FD;&#x542F;&#x52A8;&#x865A;&#x62DF;&#x673A;</p>
+<p>&#x54C7;&#x5566;&#x5566;&#xFF0C;&#x65B0;&#x95EE;&#x9898;&#x3002;</p>
+<p>&#x6253;&#x5F00; VMware Workstation &#x4F1A;&#x63D0;&#x793A;&#xFF1A;</p>
+<p>&#x82F1;&#x6587;&#x7248;&#x672C;&#xFF1A;</p>
+<p>VMware Workstation and Hyper-V are not compatible. Remove the Hyper-V role from the system before running VMware Workstation.</p>
+<p><a href="https://snippetinfo.net/sysdata/attach/media.1656/ca9d46d6588c5b1d9cc4ab2c79250744.png" data-lightbox="7933fb25-f185-4dd7-887f-2d04647bac4a" data-title="VMware Workstation and Hyper-V are not compatible." target="_blank"><img src="https://snippetinfo.net/sysdata/attach/media.1656/ca9d46d6588c5b1d9cc4ab2c79250744.png" alt="VMware Workstation and Hyper-V are not compatible."></a></p>
+<p>&#x4E2D;&#x6587;&#x7248;&#x672C;&#xFF1A;</p>
+<p>&#x201C;Vmware workstation&#x4E0E;hyper-v&#x4E0D;&#x517C;&#x5BB9;&#x201D;&#x3002;&#x5982;&#x4E0B;&#x56FE;&#xFF1A;</p>
+<p><a href="https://s1.51cto.com/wyfs02/M02/8D/46/wKioL1iVcnyRd0pAAACQa90kZmU378.png-wh_500x0-wm_3-wmp_4-s_2643006047.png" data-lightbox="742ae5c0-890b-45d5-88ec-6f38a5fb525b" data-title="Vmware workstation&#x4E0E;hyper-v&#x4E0D;&#x517C;&#x5BB9;" target="_blank"><img src="https://s1.51cto.com/wyfs02/M02/8D/46/wKioL1iVcnyRd0pAAACQa90kZmU378.png-wh_500x0-wm_3-wmp_4-s_2643006047.png" alt="Vmware workstation&#x4E0E;hyper-v&#x4E0D;&#x517C;&#x5BB9;"></a></p>
+<p>&#x53C2;&#x8003;&#xFF1A;</p>
+<ul>
+<li><a href="https://blog.51cto.com/abool/1894839" target="_blank">https://blog.51cto.com/abool/1894839</a></li>
+<li><a href="https://snippetinfo.net/mobile/media/1656" target="_blank">https://snippetinfo.net/mobile/media/1656</a></li>
+</ul>
+<p>&#x5F97;&#x5230;&#x8FD9;&#x6837;&#x7684;&#x7406;&#x8BBA;&#xFF1A;</p>
+<p>&#x6B65;&#x9A5F;</p>
+<ol>
+<li>&#x8907;&#x88FD;&#x65E2;&#x6709;&#x7684;&#x958B;&#x6A5F;&#x9078;&#x9805;&#x8A2D;&#x5B9A;
+&#x5148;&#x7528;&#x7CFB;&#x7D71;&#x7BA1;&#x7406;&#x8005;&#x6B0A;&#x9650;&#x958B;&#x555F; [&#x547D;&#x4EE4;&#x63D0;&#x793A;&#x5B57;&#x5143;]
+&#x4E26;&#x57F7;&#x884C;</li>
+</ol>
+<p>bcdedit /copy {default} /d &quot;Windows Without Hyper-V&quot;</p>
+<ol>
+<li>&#x95DC;&#x9589; Hypervisor
+&#x8907;&#x88FD;&#x6B65;&#x9A5F; 1 &#x4E2D;&#x7522;&#x751F;&#x7684; ID&#xFF0C;&#x7136;&#x5F8C;&#x57F7;&#x884C;&#x4E0B;&#x9762;&#x8A9E;&#x6CD5;</li>
+</ol>
+<p>bcdedit /set {&#x6B65;&#x9A5F; 1 &#x7684; ID} hypervisorlaunchtype off</p>
+<ol>
+<li>&#x8ABF;&#x6574;&#x9810;&#x8A2D;&#x958B;&#x6A5F;&#x8A2D;&#x5B9A;
+&#x8F38;&#x5165; msconfig &#x53EF;&#x4EE5;&#x770B;&#x5230;&#x65B0;&#x7522;&#x751F;&#x7684;&#x8A2D;&#x5B9A;&#xFF0C;&#x53EF;&#x4EE5;&#x63DB;&#x6389;&#x9810;&#x8A2D;&#x7684;&#x958B;&#x6A5F;&#x8A2D;&#x5B9A;&#x5594;</li>
+</ol>
+<p><a href="https://snippetinfo.net/sysdata/modules/mod_step/media/1656/f42939869325d6809e11b1c151d9c021_l.png" data-lightbox="6d0ed1ff-7b08-436d-b0d6-db9df1d9895f" data-title="msconfig-&#x5F00;&#x673A;-&#x9009;&#x62E9;Hyper-&#x8BBE;&#x4E3A;&#x9ED8;&#x8BA4;&#x503C;" target="_blank"><img src="https://snippetinfo.net/sysdata/modules/mod_step/media/1656/f42939869325d6809e11b1c151d9c021_l.png" alt="msconfig-&#x5F00;&#x673A;-&#x9009;&#x62E9;Hyper-&#x8BBE;&#x4E3A;&#x9ED8;&#x8BA4;&#x503C;"></a></p>
+<p>&#x6765;&#x5427;&#xFF1A;</p>
+<p>&#x901A;&#x8FC7; &#x7BA1;&#x7406;&#x5458; &#x8FD0;&#x884C; CMD&#xFF08;&#x4E00;&#x5B9A;&#x8981;CMD, &#x4E0D;&#x8981; PowerShell&#xFF09;</p>
+<pre class="language-"><code>C:\Windows\system32&gt;bcdedit /copy {default} /d &quot;Windows Without Hyper-V&quot;
+&#x5DF2;&#x5C06;&#x8BE5;&#x9879;&#x6210;&#x529F;&#x590D;&#x5236;&#x5230; {3ea4d3d8-0f0d-11e9-948a-8cec4baf24a8}&#x3002;
+
+C:\Windows\system32&gt;bcdedit /set {3ea4d3d9-0f0d-11e9-948a-8cec4baf24a8} hypervisorlaunchtype off
+&#x64CD;&#x4F5C;&#x6210;&#x529F;&#x5B8C;&#x6210;&#x3002;
+
+C:\Windows\system32&gt;
+</code></pre><p>Win+R &#x8F38;&#x5165; <code>msconfig</code> &#x53EF;&#x4EE5;&#x770B;&#x5230;&#x65B0;&#x7522;&#x751F;&#x7684;&#x8A2D;&#x5B9A;&#xFF0C;msconfig\&#x5F00;&#x673A;\&#x9009;&#x62E9;Hyper-v\&#x8BBE;&#x4E3A;&#x9ED8;&#x8BA4;&#x503C;\&#x5E94;&#x7528;\&#x786E;&#x5B9A;</p>
+<p>&#x91CD;&#x542F;&#x7535;&#x8111;&#x3002;</p>
+<p>&#x5F00;&#x673A;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x4F1A;&#x591A;&#x51FA;&#x4E00;&#x4E2A;&#x9009;&#x9879;&#xFF0C;&#x5F53;&#x7136;&#x9009;&#x62E9;&#x521A;&#x521A;&#x8BBE;&#x7F6E;&#x7684;&#x9ED8;&#x8BA4;&#x503C; without-hyper-v &#x5566;&#xFF01;</p>
+<p>&#x8FD9;&#x4E0B;&#x662F;&#x771F;&#x7684;&#x6210;&#x529F;&#x4E86;&#xFF01;~ </p>
+<p>&#x518D;&#x6B21;&#x6253;&#x5F00; vmware , &#x4E0D;&#x518D;&#x6709;&#x63D0;&#x793A;&#x3002;
+&#x518D;&#x6B21;&#x6253;&#x5F00; virtualbox , &#x70B9;&#x51FB;&#x67D0;&#x865A;&#x62DF;&#x673A;&#xFF0C;&#x8BBE;&#x7F6E;&#xFF0C;&#x4E0D;&#x518D;&#x6709; &#x201C;&#x53D1;&#x73B0;&#x65E0;&#x6548;&#x914D;&#x7F6E;&#x201D; &#x7684;&#x63D0;&#x793A;&#x3002;</p>
+<p>&#x56DE;&#x5230;&#x6700;&#x521D;&#x7684;&#x5730;&#x65B9;<code>vagrant up</code>&#x5427;&#x3002;</p>
+<h4 id="vagrant-up&#x542F;&#x52A8;"><code>vagrant up</code>&#x542F;&#x52A8;</h4>
+<pre class="language-"><code>DELL@DESKTOP-MQ9CENU MINGW64 /
+$ cd /e/vag/vag-env/fenbox-lnmp/Vagrantfile/
+
+DELL@DESKTOP-MQ9CENU MINGW64 /e/vag/vag-env/fenbox-lnmp/Vagrantfile (master)
+$ ls
+bootstrap.sh*  nginx/  README.md  sources.list  Vagrantfile
+
+DELL@DESKTOP-MQ9CENU MINGW64 /e/vag/vag-env/fenbox-lnmp/Vagrantfile (master)
+$ vagrant box list
+fenbox-lnmp-bionic (virtualbox, 0)
+ubuntu14.04        (virtualbox, 0)
+
+DELL@DESKTOP-MQ9CENU MINGW64 /e/vag/vag-env/fenbox-lnmp/Vagrantfile (master)
+$ vagrant up
+Bringing machine &apos;default&apos; up with &apos;virtualbox&apos; provider...
+==&gt; default: Clearing any previously set forwarded ports...
+==&gt; default: Clearing any previously set network interfaces...
+==&gt; default: Preparing network interfaces based on configuration...
+    default: Adapter 1: nat
+    default: Adapter 2: hostonly
+==&gt; default: Forwarding ports...
+    default: 22 (guest) =&gt; 2222 (host) (adapter 1)
+==&gt; default: Running &apos;pre-boot&apos; VM customizations...
+==&gt; default: Booting VM...
+==&gt; default: Waiting for machine to boot. This may take a few minutes...
+    default: SSH address: 127.0.0.1:2222
+    default: SSH username: vagrant
+    default: SSH auth method: private key
+    default: Warning: Connection reset. Retrying...
+    default: Warning: Connection aborted. Retrying...
+    default:
+    default: Vagrant insecure key detected. Vagrant will automatically replace
+    default: this with a newly generated keypair for better security.
+    default:
+    default: Inserting generated public key within guest...
+    default: Removing insecure key from the guest if it&apos;s present...
+    default: Key inserted! Disconnecting and reconnecting using new SSH key...
+==&gt; default: Machine booted and ready!
+==&gt; default: Checking for guest additions in VM...
+    default: The guest additions on this VM do not match the installed version of
+    default: VirtualBox! In most cases this is fine, but in rare cases it can
+    default: prevent things such as shared folders from working properly. If you see
+    default: shared folder errors, please make sure the guest additions within the
+    default: virtual machine match the version of VirtualBox you have installed on
+    default: your host and reload your VM.
+    default:
+    default: Guest Additions Version: 5.2.18
+    default: VirtualBox Version: 6.0
+==&gt; default: Configuring and enabling network interfaces...
+==&gt; default: Mounting shared folders...
+    default: /vagrant =&gt; E:/vag/vag-env/fenbox-lnmp/Vagrantfile
+    default: /var/www/typecho =&gt; E:/vag/vag-env/fenbox-lnmp/typecho
+    default: /var/www/wordpress =&gt; E:/vag/vag-env/fenbox-lnmp/wordpress
+==&gt; default: Running provisioner: shell...
+    default: Running: C:/Users/DELL/AppData/Local/Temp/vagrant-shell20190221-9544-16jnyy3.sh
+    default: --------------------------
+    default:  Upgdate &amp; Upgrade System
+    default: --------------------------
+    default: Get:1 http://mirrors.aliyun.com/ubuntu bionic InRelease [242 kB]
+    default: Get:2 http://mirrors.aliyun.com/ubuntu bionic-security InRelease [88.7 kB]
+    default: Get:3 http://mirrors.aliyun.com/ubuntu bionic-updates InRelease [88.7 kB]
+    default: Get:4 http://mirrors.aliyun.com/ubuntu bionic-proposed InRelease [242 kB]
+    default: Get:5 http://mirrors.aliyun.com/ubuntu bionic-backports InRelease [74.6 kB]
+    default: Get:6 http://mirrors.aliyun.com/ubuntu bionic/universe Sources [9051 kB]
+    default: Get:7 http://mirrors.aliyun.com/ubuntu bionic/main Sources [829 kB]
+    default: Get:8 http://mirrors.aliyun.com/ubuntu bionic/multiverse Sources [181 kB]
+    default: Get:9 http://mirrors.aliyun.com/ubuntu bionic/restricted Sources [5324 B]
+    default: Get:10 http://mirrors.aliyun.com/ubuntu bionic/main amd64 Packages [1019 kB]
+    default: Get:11 http://mirrors.aliyun.com/ubuntu bionic/main Translation-en [516 kB]
+    default: Get:12 http://mirrors.aliyun.com/ubuntu bionic/restricted amd64 Packages [9184 B]
+    default: Get:13 http://mirrors.aliyun.com/ubuntu bionic/restricted Translation-en [3584 B]
+    default: Get:14 http://mirrors.aliyun.com/ubuntu bionic/universe amd64 Packages [8570 kB]
+    default: Get:15 http://mirrors.aliyun.com/ubuntu bionic/universe Translation-en [4941 kB]
+    default: Get:16 http://mirrors.aliyun.com/ubuntu bionic/multiverse amd64 Packages [151 kB]
+    default: Get:17 http://mirrors.aliyun.com/ubuntu bionic/multiverse Translation-en [108 kB]
+    default: Get:18 http://mirrors.aliyun.com/ubuntu bionic-security/universe Sources [35.1 kB]
+    default: Get:19 http://mirrors.aliyun.com/ubuntu bionic-security/multiverse Sources [2308 B]
+    default: Get:20 http://mirrors.aliyun.com/ubuntu bionic-security/main Sources [76.0 kB]
+    default: Get:21 http://mirrors.aliyun.com/ubuntu bionic-security/main amd64 Packages [270 kB]
+    default: Get:22 http://mirrors.aliyun.com/ubuntu bionic-security/main Translation-en [101 kB]
+    default: Get:23 http://mirrors.aliyun.com/ubuntu bionic-security/universe amd64 Packages [126 kB]
+    default: Get:24 http://mirrors.aliyun.com/ubuntu bionic-security/universe Translation-en [71.2 kB]
+    default: Get:25 http://mirrors.aliyun.com/ubuntu bionic-security/multiverse amd64 Packages [3324 B]
+    default: Get:26 http://mirrors.aliyun.com/ubuntu bionic-security/multiverse Translation-en [1848 B]
+    default: Get:27 http://mirrors.aliyun.com/ubuntu bionic-updates/main Sources [247 kB]
+    default: Get:28 http://mirrors.aliyun.com/ubuntu bionic-updates/universe Sources [133 kB]
+    default: Get:29 http://mirrors.aliyun.com/ubuntu bionic-updates/multiverse Sources [4192 B]
+    default: Get:30 http://mirrors.aliyun.com/ubuntu bionic-updates/restricted Sources [2060 B]
+    default: Get:31 http://mirrors.aliyun.com/ubuntu bionic-updates/main amd64 Packages [527 kB]
+    default: Get:32 http://mirrors.aliyun.com/ubuntu bionic-updates/main Translation-en [196 kB]
+    default: Get:33 http://mirrors.aliyun.com/ubuntu bionic-updates/restricted amd64 Packages [6996 B]
+    default: Get:34 http://mirrors.aliyun.com/ubuntu bionic-updates/restricted Translation-en [3076 B]
+    default: Get:35 http://mirrors.aliyun.com/ubuntu bionic-updates/universe amd64 Packages [736 kB]
+    default: Get:36 http://mirrors.aliyun.com/ubuntu bionic-updates/universe Translation-en [189 kB]
+    default: Get:37 http://mirrors.aliyun.com/ubuntu bionic-updates/multiverse amd64 Packages [6384 B]
+    default: Get:38 http://mirrors.aliyun.com/ubuntu bionic-updates/multiverse Translation-en [3452 B]
+    default: Get:39 http://mirrors.aliyun.com/ubuntu bionic-proposed/universe Sources [2244 B]
+    default: Get:40 http://mirrors.aliyun.com/ubuntu bionic-proposed/main Sources [22.7 kB]
+    default: Get:41 http://mirrors.aliyun.com/ubuntu bionic-proposed/main amd64 Packages [51.6 kB]
+    default: Get:42 http://mirrors.aliyun.com/ubuntu bionic-proposed/main Translation-en [23.0 kB]
+    default: Get:43 http://mirrors.aliyun.com/ubuntu bionic-proposed/universe amd64 Packages [7536 B]
+    default: Get:44 http://mirrors.aliyun.com/ubuntu bionic-proposed/universe Translation-en [5432 B]
+    default: Get:45 http://mirrors.aliyun.com/ubuntu bionic-backports/universe Sources [2068 B]
+    default: Get:46 http://mirrors.aliyun.com/ubuntu bionic-backports/universe amd64 Packages [3472 B]
+    default: Get:47 http://mirrors.aliyun.com/ubuntu bionic-backports/universe Translation-en [1604 B]
+    default: Fetched 29.0 MB in 10s (3023 kB/s)
+    default: Reading package lists...
+    default: Reading package lists...
+    default: Building dependency tree...
+    default:
+    default: Reading state information...
+    default: Calculating upgrade...
+    default: 0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+    default: ---------------
+    default:  Install NGINX
+    default: ---------------
+    default: WARNING:
+    default: apt
+    default:
+    default: does not have a stable CLI interface.
+    default: Use with caution in scripts.
+    default: Reading package lists...
+    default: Building dependency tree...
+    default: Reading state information...
+    default: E: Unable to locate package nginx
+    default: -----------------
+    default:  Install MariaDB
+    default: -----------------
+    default:
+    default: WARNING: apt does not have a stable CLI interface. Use with caution in scripts.
+    default: Reading package lists...
+    default: Building dependency tree...
+    default:
+    default: Reading state information...
+    default: E: Unable to locate package mariadb-server
+    default: E: Unable to locate package php-mysql
+    default: -------------
+    default:  Install PHP
+    default: -------------
+    default:
+    default: WARNING: apt does not have a stable CLI interface. Use with caution in scripts.
+    default: Reading package lists...
+    default: Building dependency tree...
+    default:
+    default: Reading state information...
+    default: E: Unable to locate package php-fpm
+    default: -----------------
+    default:  Initialize Site
+    default: -----------------
+    default: cp: cannot create regular file &apos;/etc/nginx/sites-available/&apos;: No such file or directory
+    default: cp:
+    default: cannot create regular file &apos;/etc/nginx/sites-available/&apos;
+    default: : No such file or directory
+    default: ln: target &apos;/etc/nginx/sites-enabled/&apos; is not a directory: No such file or directory
+    default: ln:
+    default: target &apos;/etc/nginx/sites-enabled/&apos; is not a directory
+    default: : No such file or directory
+    default: /tmp/vagrant-shell: line 50: nginx: command not found
+    default: /tmp/vagrant-shell: line 51: nginx: command not found
+The SSH command responded with a non-zero exit status. Vagrant
+assumes that this means the command failed. The output for this command
+should be in the log above. Please read the output to determine what
+went wrong.
+
+DELL@DESKTOP-MQ9CENU MINGW64 /e/vag/vag-env/fenbox-lnmp/Vagrantfile (master)
+$
+</code></pre><p>&#x8D77;&#x6765;&#x4E86;&#xFF0C;&#x4F46;&#x662F;&#xFF0C;&#x5F88;&#x660E;&#x663E;&#x7684;&#x4E00;&#x4E2A;&#x95EE;&#x9898;&#xFF0C;&#x6709;&#x597D;&#x591A;&#x62A5;&#x9519;&#x3002;&#x600E;&#x4E48;&#x529E;&#xFF1F;</p>
+<p><code>vagrant ssh</code> &#x8FDB;&#x5165; &#x865A;&#x62DF;&#x673A;&#x770B;&#x4E00;&#x4E0B;&#x3002;</p>
+<p>&#x53D1;&#x73B0;&#xFF1A;</p>
+<ul>
+<li>/vagrant/ &#x4E0B;&#x9762;&#xFF0C;&#x786E;&#x5B9E;&#x6709;&#x6587;&#x4EF6;&#x3002;&#x6587;&#x4EF6;&#x4F20;&#x8F93;&#x6CA1;&#x6709;&#x95EE;&#x9898;&#x3002;</li>
+<li><code>cp /vagrant/sources.list /etc/apt/</code> &#x8FD9;&#x4E00;&#x6B65;&#xFF0C;&#x6CA1;&#x6709;&#x6210;&#x529F;&#x3002;&#x56E0;&#x4E3A; <code>/etc/apt/sources.list</code> &#x6587;&#x4EF6;&#x8FD8;&#x662F;&#x7CFB;&#x7EDF;&#x539F;&#x59CB;&#x6587;&#x4EF6;&#x3002;</li>
+<li>&#x65E5;&#x5FD7;&#x4E2D;&#x5374;&#x6709;<code>Get:1 http://mirrors.aliyun.com/ubuntu bionic InRelease [242 kB]</code>&#x8FD9;&#x6837;&#x7684;&#x63D0;&#x793A;&#x3002;&#x4E3A;&#x4EC0;&#x4E48;&#xFF1F;</li>
+</ul>
+<p>&#x8FD9;&#x6837;&#x7684;&#x8BDD;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x8BF4;&#xFF0C;&#x8981;&#x4E48;&#x662F;&#x56E0;&#x4E3A;&#x6743;&#x9650;&#x95EE;&#x9898;&#xFF0C;&#x5BFC;&#x81F4; &#x5728;&#x865A;&#x62DF;&#x673A;&#x4E2D;  <code>/vagrant/bootstrap.sh</code> &#x547D;&#x4EE4;&#x6CA1;&#x6709;&#x8FBE;&#x5230;&#x6548;&#x679C;&#x3002;</p>
+<p>&#x65E2;&#x7136;&#x662F;&#x8FD9;&#x6837;&#x3002;&#x6211;&#x624B;&#x5DE5;&#x6267;&#x884C;&#x4E00;&#x4E0B;&#x3002;</p>
+<pre class="language-"><code>vagrant@ubuntu-bionic:/vagrant$ sudo ./bootstrap.sh
+</code></pre><p>&#x56E0;&#x4E3A;&#x5728; Vagrantfile &#x4E2D;&#x8BBE;&#x7F6E;&#x7684;IP&#x662F; 192.168.50.10, &#x5219; chrome &#x6253;&#x5F00; <a href="http://192.168.50.10/" target="_blank">http://192.168.50.10/</a> &#x3002;&#x51FA;&#x73B0;&#x4E86; nginx &#x9875;&#x9762;:</p>
+<pre class="language-"><code>Welcome to nginx!
+If you see this page, the nginx web server is successfully installed and working. Further configuration is required.
+
+For online documentation and support please refer to nginx.org.
+Commercial support is available at nginx.com.
+
+Thank you for using nginx.
+</code></pre><p>&#x90A3;&#x770B;&#x4E00;&#x4E0B;&#xFF0C;&#x6211;&#x4EEC;&#x8BBE;&#x7F6E;&#x7684; typecho &#x914D;&#x7F6E;&#xFF0C;&#x5219; chrome &#x6253;&#x5F00; <a href="http://typecho.test.hellowiki.com/" target="_blank">http://typecho.test.hellowiki.com/</a> , &#x51FA;&#x73B0;&#x4E86; </p>
+<p>&quot;hello typecho&quot;</p>
+<p>&#x540C;&#x7406;&#xFF0C;&#x6253;&#x5F00; <a href="http://wordpress.test.hellowiki.com/" target="_blank">http://wordpress.test.hellowiki.com/</a> , &#x51FA;&#x73B0;&#x4E86; </p>
+<p>&quot;hello wordpress&quot;</p>
+<p>&#x81F3;&#x6B64;&#x3002;&#x6211;&#x4EEC;&#x7684;&#x670D;&#x52A1;&#x914D;&#x7F6E;&#x6210;&#x529F;&#x4E86;&#x3002;</p>
+<h3 id="&#x9057;&#x7559;&#x7684;&#x95EE;&#x9898;">&#x9057;&#x7559;&#x7684;&#x95EE;&#x9898;</h3>
+<p>&#x9057;&#x7559;&#x7684;&#x95EE;&#x9898;&#x5982;&#x4E0B;&#xFF0C;&#x6709;&#x77E5;&#x9053;&#x7684;&#xFF0C;&#x8FD8;&#x671B;&#x6C42;&#x6559;&#xFF1A;</p>
+<ul>
+<li>&#x4E3A;&#x4EC0;&#x4E48; &#x5728;&#x865A;&#x62DF;&#x673A;&#x4E2D;  <code>/vagrant/bootstrap.sh</code> &#x547D;&#x4EE4;&#x6CA1;&#x6709;&#x8FBE;&#x5230;&#x6548;&#x679C;&#xFF1F;</li>
+</ul>
+<h3 id="&#x5982;&#x679C;&#x60F3;&#x901A;&#x8FC7;&#x8D26;&#x53F7;&#x5BC6;&#x7801;&#x767B;&#x5F55;">&#x5982;&#x679C;&#x60F3;&#x901A;&#x8FC7;&#x8D26;&#x53F7;&#x5BC6;&#x7801;&#x767B;&#x5F55;</h3>
+<p>&#x53C2;&#x8003;&#xFF1A; <a href="https://stackoverflow.com/questions/41337802/vagrants-ubuntu-16-04-vagrantfile-default-password/41337943" target="_blank">https://stackoverflow.com/questions/41337802/vagrants-ubuntu-16-04-vagrantfile-default-password/41337943</a></p>
+<p>It&apos;s not necessary. You can:</p>
+<h4 id="&#x65B9;&#x6CD5;1">&#x65B9;&#x6CD5;1</h4>
+<ul>
+<li>login using SSH key authentication ( &#x6CE8;&#x610F;&#xFF1A;<code>vagrant ssh</code>&#x767B;&#x5F55;&#x7684;&#x662F; vagrant &#x7528;&#x6237;&#xFF0C;&#x5E76;&#x4E0D;&#x662F; ubuntu &#x7528;&#x6237; )</li>
+<li>change the password using <code>sudo passwd ubuntu</code> (by default ubuntu user has sudo-permissions with <code>NOPASSWD</code> set)
+Actually, not only you can, but you should change the password.</li>
+</ul>
+<h4 id="&#x65B9;&#x6CD5;2">&#x65B9;&#x6CD5;2</h4>
+<pre class="language-"><code>DELL@DESKTOP-MQ9CENU MINGW64 ~/.vagrant.d/boxes/fenbox-lnmp-bionic/0/virtualbox (master)
+$ pwd
+/c/Users/DELL/.vagrant.d/boxes/fenbox-lnmp-bionic/0/virtualbox
+DELL@DESKTOP-MQ9CENU MINGW64 ~/.vagrant.d/boxes/fenbox-lnmp-bionic/0/virtualbox (master)
+$ cat Vagrantfile
+# Front load the includes
+include_vagrantfile = File.expand_path(&quot;../include/_Vagrantfile&quot;, __FILE__)
+load include_vagrantfile if File.exist?(include_vagrantfile)
+
+Vagrant.configure(&quot;2&quot;) do |config|
+  config.vm.base_mac = &quot;02FBA2FD6790&quot;
+
+  config.vm.provider &quot;virtualbox&quot; do |vb|
+     vb.customize [ &quot;modifyvm&quot;, :id, &quot;--uart1&quot;, &quot;0x3F8&quot;, &quot;4&quot; ]
+     vb.customize [ &quot;modifyvm&quot;, :id, &quot;--uartmode1&quot;, &quot;file&quot;, File.join(Dir.pwd, &quot;ubuntu-bionic-18.04-cloudimg-console.log&quot;) ]
+  end
+end
+
+DELL@DESKTOP-MQ9CENU MINGW64 ~/.vagrant.d/boxes/fenbox-lnmp-bionic/0/virtualbox (master)
+$
+</code></pre><p>&#x7136;&#x540E;&#x53EF;&#x4EE5;&#x5728;&#x91CC;&#x9762;&#x52A0;&#x4E0A;&#x914D;&#x7F6E;&#xFF0C;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre class="language-"><code># Front load the includes
+include_vagrantfile = File.expand_path(&quot;../include/_Vagrantfile&quot;, __FILE__)
+load include_vagrantfile if File.exist?(include_vagrantfile)
+
+Vagrant.configure(&quot;2&quot;) do |config|
+  config.vm.base_mac = &quot;022999D56C03&quot;
+  config.ssh.username = &quot;ubuntu&quot;
+  config.ssh.password = &quot;fbcd1ed4fe8c83b157dc6e0f&quot;
+
+  config.vm.provider &quot;virtualbox&quot; do |vb|
+     vb.customize [ &quot;modifyvm&quot;, :id, &quot;--uart1&quot;, &quot;0x3F8&quot;, &quot;4&quot; ]
+     vb.customize [ &quot;modifyvm&quot;, :id, &quot;--uartmode1&quot;, &quot;file&quot;, File.join(Dir.pwd, &quot;ubuntu-bionic-18.04-cloudimg-console.log&quot;) ]
+  end
+end
+</code></pre><h2 id="ref">ref</h2>
+<ul>
+<li><a href="https://www.linode.com/docs/web-servers/lemp/how-to-install-a-lemp-server-on-ubuntu-18-04/" target="_blank">https://www.linode.com/docs/web-servers/lemp/how-to-install-a-lemp-server-on-ubuntu-18-04/</a></li>
+<li><a href="https://snippetinfo.net/mobile/media/1656" target="_blank">https://snippetinfo.net/mobile/media/1656</a></li>
+<li><a href="https://stackoverflow.com/questions/41337802/vagrants-ubuntu-16-04-vagrantfile-default-password/41337943" target="_blank">https://stackoverflow.com/questions/41337802/vagrants-ubuntu-16-04-vagrantfile-default-password/41337943</a> </li>
+</ul>
+<footer class="page-footer"><span class="copyright"><p><a href="https://github.com/eiuapp/ceph-handbook" target="_blank">Ceph&#x5B9E;&#x8DF5;&#x6307;&#x5357;</a> | <a href="https://github.com/eiuapp/ceph-handbook" target="_blank">Ceph&#x5B9E;&#x8DF5;&#x6307;&#x5357;</a></p><p><a href="https://res.cloudinary.com/dmtixvmgt/image/upload/v1539022273/wechat-qrcode_cml5dm.jpg" data-lightbox="2fd927ee-fa64-4eca-8ed5-6bd72b573a3c" target="_blank">&#x70B9;&#x51FB;&#x5173;&#x6CE8;&#x3010;servicemesher&#x3011;&#x516C;&#x4F17;&#x53F7;&#x56DE;&#x590D;&#x3010;&#x52A0;&#x7FA4;&#x3011;&#x52A0;&#x5165;&#x5B66;&#x4E60;&#x7FA4;</a> | </p>Copyright &#xA9; <a href="https://eiuapp.github.io" target="_blank">eiuapp.github.io</a> 2017-2019 all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification"> Updated at 
+2019-04-02 08:26:06
+</span></footer></body></html>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="../" class="navigation navigation-prev navigation-unique" aria-label="Previous page: 前言">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"安装","level":"2.1","depth":1,"previous":{"title":"前言","level":"1.1","depth":1,"path":"README.md","ref":"README.md","articles":[]},"dir":"ltr"},"config":{"plugins":["github","codesnippet","splitter","page-toc-button","editlink","back-to-top-button","-lunr","-search","search-plus","github-buttons@2.1.0","favicon@^0.0.2","tbfed-pagefooter@^0.0.1","3-ba","theme-default","-highlight","prism","prism-themes","sitemap-general","lightbox","adsense","ga"],"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"<p><a href=https://github.com/eiuapp/ceph-handbook>Ceph实践指南</a> | <a href=https://github.com/eiuapp/ceph-handbook>Ceph实践指南</a></p><p><a href=https://res.cloudinary.com/dmtixvmgt/image/upload/v1539022273/wechat-qrcode_cml5dm.jpg data-lightbox=2fd927ee-fa64-4eca-8ed5-6bd72b573a3c>点击关注【servicemesher】公众号回复【加群】加入学习群</a> | </p>Copyright © <a href=https://eiuapp.github.io>eiuapp.github.io</a> 2017-2019","modify_label":" Updated at ","modify_format":"YYYY-MM-DD HH:mm:ss"},"prism":{"lang":{"shell":"bash"},"css":["prism-themes/themes/prism-ghcolors.css"]},"github":{"url":"https://github.com/eiuapp/fenbox-vagrantfile-handbook"},"editlink":{"label":"编辑本页","multilingual":false,"base":"https://github.com/eiuapp/fenbox-vagrantfile-handbook/blob/master/"},"splitter":{},"adsense":{"client":"ca-pub-4029167986768912","slot":"2445941692","format":"auto","element":".page-inner section","position":"bottom"},"codesnippet":{},"sitemap-general":{"prefix":"https://eiuapp.github.io/fenbox-vagrantfile-handbook/"},"fontsettings":{"theme":"white","family":"sans","size":2},"favicon":{"shortcut":"favicon.ico","bookmark":"favicon.ico"},"lightbox":{"jquery":true},"page-toc-button":{},"back-to-top-button":{},"prism-themes":{},"github-buttons":{"repo":"eiuapp/fenbox-vagrantfile-handbook","types":["star"],"size":"small"},"3-ba":{"configuration":"auto","token":"11f7d254cfa4e0ca44b175c66d379ecc"},"ga":{"configuration":"auto","token":"UA-93485976-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"showLevel":true,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}},"search-plus":{}},"theme":"default","author":"eiuapp","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"fenbox/Vagrantfile - fenbox/Vagrantfile 实践指南 by eiuapp","language":"zh-hans","links":{"sidebar":{"Ceph Handbook":"https://eiuapp.github.io/fenbox-vagrantfile-handbook"}},"gitbook":"*","description":"fenbox/Vagrantfile - fenbox/Vagrantfile 实践指南 2019年 by eiuapp "},"file":{"path":"docs/fenbox-vagrantfile-note.md","mtime":"2019-04-02T08:26:06.031Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-04-02T08:27:31.558Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-github/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-page-toc-button/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-editlink/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-back-to-top-button/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-plus/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-plus/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-github-buttons/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-3-ba/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lightbox/jquery.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lightbox/lightbox.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-adsense/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-ga/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
